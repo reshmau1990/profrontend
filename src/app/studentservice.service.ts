@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import {HttpClient ,HttpResponse} from '@angular/common/http';
 
@@ -24,56 +25,56 @@ export class StudentserviceService {
     photo:""
   };
   constructor( private http:HttpClient) { }
-  
+  server_address:string = '/api';
   getStudent(id:any){
-    return this.http.get("http://localhost:3000/adminhome/students/"+id);
+    return this.http.get(`${this.server_address}/adminhome/students/`+id);
   }
   getStudents(){
-    return this.http.get("http://localhost:3000/adminhome/students");
+    return this.http.get(`${this.server_address}/adminhome/students`);
   }
 
 
   viewStudent(id:any){
-    return this.http.get("http://localhost:3000/adminhome/dashboard/stdlist/"+id);
+    return this.http.get(`${this.server_address}/adminhome/dashboard/stdlist/`+id);
   }
 
   viewStudents(){
-    return this.http.get("http://localhost:3000/adminhome/dashboard/stdlist");
+    return this.http.get(`${this.server_address}/adminhome/dashboard/stdlist`);
   }
   viewRegStudents(){
-    return this.http.get("http://localhost:3000/adminhome/dashboard/stdreg");
+    return this.http.get(`${this.server_address}/adminhome/dashboard/stdreg`);
   }
 
   deleteStudent(id:any)
   {
 
-    return this.http.delete("http://localhost:3000/adminhome/students/remove/"+id)
+    return this.http.delete(`${this.server_address}/adminhome/students/remove/`+id)
 
   }
   removeStudent(id:any)
   {
-    return this.http.delete("http://localhost:3000/adminhome/dashboard/stdlist/remove/"+id)
+    return this.http.delete(`${this.server_address}/adminhome/dashboard/stdlist/remove/`+id)
   }
   editStudent(student:any)
   {
     console.log('client update')
-    return this.http.put("http://localhost:3000/adminhome/students/update",student)
+    return this.http.put(`${this.server_address}/adminhome/students/update`,student)
     .subscribe(data =>{console.log(data)})
   }
   approveStudent(student:any)
   {
-    return this.http.post("http://localhost:3000/adminhome/dashboard/stdlist/student/approve",student)
+    return this.http.post(`${this.server_address}/adminhome/dashboard/stdlist/student/approve`,student)
     .subscribe(data =>{console.log(data)})
   }
 
   viewProfile(id:any){
-    return this.http.get("http://localhost:3000/studenthome/stdhome/"+id);
+    return this.http.get(`${this.server_address}/studenthome/stdhome/`+id);
   }
 
   editprofile(student:any)
   {
     console.log('client update')
-    return this.http.put("http://localhost:3000/studenthome/stdhome/editprofile",student)
+    return this.http.put(`${this.server_address}/studenthome/stdhome/editprofile`,student)
     .subscribe(data =>{console.log(data)})
   }
 }
