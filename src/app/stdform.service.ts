@@ -27,10 +27,10 @@ export class StdformService {
   };
 
   constructor(private http:HttpClient,private router: Router) { }
-    // server_address:string = '/api';
+    server_address:string = '/api';
     newStudent(std:any)
     {   
       // return this.http.post(`${this.server_address}/studentsignup/insert`,{"item":user})
-      return this.http.post("http://localhost:3000/stdform/insert",{"item":std})
+      return this.http.post(`${this.server_address}/stdform/insert`,{"item":std})
     }
 }
