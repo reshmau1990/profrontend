@@ -11,29 +11,31 @@ export class EmployerService {
     qualification:'',
     }
   constructor( private http:HttpClient) { }
+  server_address:string = '/api';
   getEmployer(id:any){
-    return this.http.get("http://localhost:3000/adminhome/employers/"+id);
+    return this.http.get(`${this.server_address}/adminhome/employers/` +id);
+    
   }
   getEmployers(){
-    return this.http.get("http://localhost:3000/adminhome/employers");
+    return this.http.get(`${this.server_address}/adminhome/employers`);
   }
 
   newEmployer(item:any)
   {   
-    return this.http.post("http://localhost:3000/adminhome/employers/newEmployer/insert",{"employer":item})
+    return this.http.post(`${this.server_address}/adminhome/employers/newEmployer/insert`,{"employer":item})
     .subscribe(data =>{console.log(data)})
   }
   
   deleteEmployer(id:any)
   {
 
-    return this.http.delete("http://localhost:3000/adminhome/employers/remove/"+id)
+    return this.http.delete(`${this.server_address}/adminhome/employers/remove/`+id)
 
   }
   editEmployer(employer:any)
   {
     console.log('client update')
-    return this.http.put("http://localhost:3000/adminhome/employers/update-employer",employer)
+    return this.http.put(`${this.server_address}`,employer)
     .subscribe(data =>{console.log(data)})
   }
 }
