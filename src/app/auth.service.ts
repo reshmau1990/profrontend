@@ -1,4 +1,4 @@
- import { Injectable } from '@angular/core';
+  import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
 
@@ -7,8 +7,8 @@ export class AuthService {
 
   
   // private _loginUrl = "/api";
-  private _loginUrl = "http://localhost:3000/studentlogin";
-  private _logUrl = "http://localhost:3000/login";
+  private _loginUrl = "/api/studentlogin";
+  private _logUrl = "/api/login";
 
   constructor(private http: HttpClient) { }
 
